@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:yolo_skin/features/acne_solution/view/acne_solution_page.dart';
+import 'package:yolo_skin/features/acne_solution/acne_solution.dart';
 import 'package:yolo_skin/l10n/l10n.dart';
 
 class App extends StatelessWidget {
