@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:io' show File;
 
 import 'package:yolo_skin/features/acne_solution/data/datasource/helpers/detection_helper.dart';
 import 'package:yolo_skin/features/acne_solution/data/datasource/helpers/image_helper.dart';

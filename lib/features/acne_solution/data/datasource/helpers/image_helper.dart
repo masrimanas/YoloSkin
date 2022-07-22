@@ -1,7 +1,7 @@
 import 'dart:io' show File;
 
 import 'package:image_picker/image_picker.dart'
-    show ImageSource, CameraDevice, ImagePicker;
+    show CameraDevice, ImagePicker, ImageSource;
 import 'package:yolo_skin/features/acne_solution/utils/exception.dart';
 
 class ImageHelper {
@@ -19,11 +19,12 @@ class ImageHelper {
     final result = await _picker.pickImage(
       source: ImageSource.camera,
       imageQuality: 0,
+      preferredCameraDevice: CameraDevice.front,
     );
     if (result != null) {
       return File(result.path);
     }
-    throw const ImageException(message: 'Error: The Image File is Empty');
+    throw const ImageException(message: 'The image file is empty');
   }
 
   Future<File?> getImageFromGallery() async {
@@ -34,6 +35,6 @@ class ImageHelper {
     if (result != null) {
       return File(result.path);
     }
-    throw const ImageException(message: 'Error: The Image File is Empty');
+    throw const ImageException(message: 'The image file is empty');
   }
 }

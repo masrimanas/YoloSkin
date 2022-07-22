@@ -39,5 +39,7 @@ flutter:
   generate: true
 
   assets:
-    - assets/face.pt
+    # - assets/faces.pt
+    - assets/face.torchscript
     - assets/labels.csv
+    - assets/dummy_result.jpeg

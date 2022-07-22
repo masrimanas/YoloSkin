@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:yolo_skin/app/routes/routing.dart';
 import 'package:yolo_skin/features/acne_solution/acne_solution.dart';
 import 'package:yolo_skin/l10n/l10n.dart';
 
@@ -20,7 +21,8 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const AcneSolutionPage(),
+      home: const AcneMainPage(),
+      onGenerateRoute: generatedRoute,
     );
   }
 }
