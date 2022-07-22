@@ -46,12 +46,6 @@ class DetectionResultPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  final produk = [
-                    Icons.camera,
-                    Icons.image,
-                    Icons.ac_unit_outlined,
-                    Icons.access_alarm,
-                  ];
                   return Container(
                     margin: const EdgeInsets.symmetric(horizontal: 7),
                     height: 100,
@@ -60,9 +54,14 @@ class DetectionResultPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey,
                     ),
-                    child: Icon(
-                      produk[index],
-                      size: 100,
+                    child: Center(
+                      child: Text(
+                        'Produk ${index + 1}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   );
                 },

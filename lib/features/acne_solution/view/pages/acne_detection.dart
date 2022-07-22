@@ -1,10 +1,8 @@
 import 'dart:io' show File;
 
 import 'package:flutter/material.dart';
-import 'package:yolo_skin/app/view/widgets/custom_bottom_sheet.dart';
 import 'package:yolo_skin/app/view/widgets/custom_button.dart';
 import 'package:yolo_skin/features/acne_solution/acne_solution.dart';
-import 'package:yolo_skin/features/acne_solution/view/widgets/check_view.dart';
 
 class AcneDetectionPage extends StatelessWidget {
   const AcneDetectionPage({
@@ -56,8 +54,10 @@ class AcneDetectionPage extends StatelessWidget {
                     );
                     Future.delayed(const Duration(seconds: 2), () {
                       Navigator.popAndPushNamed(
-                          context, DetectionResultPage.route,
-                          arguments: photo);
+                        context,
+                        DetectionResultPage.route,
+                        arguments: photo,
+                      );
                     });
                   },
                 ),
