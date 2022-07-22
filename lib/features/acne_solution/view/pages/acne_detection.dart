@@ -3,6 +3,7 @@ import 'dart:io' show File;
 import 'package:flutter/material.dart';
 import 'package:yolo_skin/app/view/widgets/custom_bottom_sheet.dart';
 import 'package:yolo_skin/app/view/widgets/custom_button.dart';
+import 'package:yolo_skin/features/acne_solution/acne_solution.dart';
 import 'package:yolo_skin/features/acne_solution/view/widgets/check_view.dart';
 
 class AcneDetectionPage extends StatelessWidget {
@@ -23,51 +24,14 @@ class AcneDetectionPage extends StatelessWidget {
           children: [
             if (photo != null)
               Expanded(
-                flex: 5,
+                flex: 4,
                 child: Center(
-                  child: Image.asset('assets/dummy_result.jpeg'),
+                  child: Padding(
+                    padding: const EdgeInsets.all(18),
+                    child: Image.asset('assets/dummy_result2.jpeg'),
+                  ),
                 ),
               ),
-            const SizedBox(
-              height: 24,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 18),
-              child: Text(
-                'Rekomendasi Produk:',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            Flexible(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  final produk = [
-                    Icons.camera,
-                    Icons.image,
-                    Icons.ac_unit_outlined,
-                    Icons.access_alarm,
-                  ];
-                  return Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 7),
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey,
-                    ),
-                    child: Icon(
-                      produk[index],
-                      size: 100,
-                    ),
-                  );
-                },
-              ),
-            ),
             const SizedBox(
               height: 24,
             ),
@@ -78,15 +42,23 @@ class AcneDetectionPage extends StatelessWidget {
                   horizontal: 70,
                 ),
                 child: CustomButton(
-                  text: 'Cek Lagi',
+                  text: 'Cek',
                   color: Colors.amber,
                   onPressed: () {
-                    customBottomSheet(
+                    // ignore: inference_failure_on_function_invocation
+                    showDialog(
                       context: context,
-                      child: CheckView(
-                        file: photo,
-                      ),
+                      builder: (context) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
                     );
+                    Future.delayed(const Duration(seconds: 2), () {
+                      Navigator.popAndPushNamed(
+                          context, DetectionResultPage.route,
+                          arguments: photo);
+                    });
                   },
                 ),
               ),

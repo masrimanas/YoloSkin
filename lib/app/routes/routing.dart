@@ -18,8 +18,11 @@ Route<dynamic>? generatedRoute(RouteSettings settings) {
         settings: settings,
       );
     case DetectionResultPage.route:
+      final photo = settings.arguments! as File;
       return MaterialPageRoute(
-        builder: (_) => const DetectionResultPage(),
+        builder: (_) => DetectionResultPage(
+          photo: photo,
+        ),
       );
     default:
       return MaterialPageRoute(

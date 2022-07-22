@@ -43,3 +43,4 @@ flutter:
     - assets/face.torchscript
     - assets/labels.csv
     - assets/dummy_result.jpeg
+    - assets/dummy_result2.jpeg
